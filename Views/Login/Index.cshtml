@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <form id="frm">
+        <div class="col-lg-6-col-lg-offset-3">
+            Usuario
+            <input type="text" name="user" />
+            Password
+            <input type="password" name="pass" />
+            <input type="submit" class="btn btn-success" value="Entrar" />
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+    <script>
+    $(document).ready(function () {
+        $("#frm").submit(function (e) {
+            e.preventDefault();
+            // Sectiion va a cargar el scrip en RenderSection
+            //resolver una URL
+            //a donde se va a dirigir
+            url = "@Url.Content("~/Login/Enter")"
+            //invoca la funcion padre #frm | serialize da los atributos del frm
+            parametros = $(this).serialize();
+            //hacer peticion
+            $.post(url, parametros, function (data) {
+                //cuando se 1 es exitoso, index
+                //data trae el mensaje de Content - controlador
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/")";
+                } else {
+                    alert(data);
+                }
+            })
+        })
+    })
+    </script>
+}

@@ -26,13 +26,20 @@
         </div>
     </nav>
     <div class="container body-content">
+        <div>
+            arriba
+        </div>
+        <!--renderbody es donde se muestra el cotenido de la pagina index-->
         @RenderBody()
         <hr />
+        <div>
+            abajo
+        </div>
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
         </footer>
     </div>
-
+    <!--Carga las librerias query-->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

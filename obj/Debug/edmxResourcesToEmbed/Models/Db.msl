@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PRACTICAMVCModelStoreContainer" CdmEntityContainer="PRACTICAMVCEntities">
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="PRACTICAMVCModel.USERS">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="IDSTATE" ColumnName="IDSTATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USTATE">
+      <EntityTypeMapping TypeName="PRACTICAMVCModel.USTATE">
+        <MappingFragment StoreEntitySet="USTATE">
+          <ScalarProperty Name="IDSTATE" ColumnName="IDSTATE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

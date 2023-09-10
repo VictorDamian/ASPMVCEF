@@ -84,3 +84,7 @@ C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\obj\Debug\AspMvcEF.csproj.CoreCompileI
 C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\obj\Debug\AspMvcEF.csproj.CopyComplete
 C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\obj\Debug\AspMvcEF.dll
 C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\obj\Debug\AspMvcEF.pdb
+C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\bin\EntityFramework.dll
+C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\bin\EntityFramework.SqlServer.dll
+C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\bin\EntityFramework.xml
+C:\Users\stalk\Desktop\FULLASPEF\AspMvcEF\bin\EntityFramework.SqlServer.xml

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AspMvcEF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,23 @@ namespace AspMvcEF.Controllers
         {
             try
             {
-                return Content("1");
+                //Hacer busqueda en BD con EF
+                using (PRACTICAMVCEntities db = new PRACTICAMVCEntities())
+                {
+                    var lst = from i in db.USERS
+                              where i.USERNAME == user && i.PASSWORD == pass && i.IDSTATE == 1
+                              select i;
+                    if (lst.Count() > 0)
+                    {
+                        //variable de sesion | Obj
+                        Session["User"] = lst.First();
+                        return Content("1");
+                    }
+                    else
+                    {
+                        return Content("Usuario invalido");
+                    }
+                }
             }
             catch (Exception ex)
             {

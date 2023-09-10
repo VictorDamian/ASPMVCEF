@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PRACTICAMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="IDUSER" />
+    </Key>
+    <Property Name="IDUSER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="IDSTATE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USTATE">
+    <Key>
+      <PropertyRef Name="IDSTATE" />
+    </Key>
+    <Property Name="IDSTATE" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_IDSTATE">
+    <End Role="USTATE" Type="Self.USTATE" Multiplicity="1" />
+    <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USTATE">
+        <PropertyRef Name="IDSTATE" />
+      </Principal>
+      <Dependent Role="USERS">
+        <PropertyRef Name="IDSTATE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PRACTICAMVCModelStoreContainer">
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USTATE" EntityType="Self.USTATE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_IDSTATE" Association="Self.FK_IDSTATE">
+      <End Role="USTATE" EntitySet="USTATE" />
+      <End Role="USERS" EntitySet="USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

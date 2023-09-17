@@ -1,0 +1,37 @@
+﻿<!--Esta vista recive un modelo-->
+@model List<AspMvcEF.Models.TableViewModel.EmployeeViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuarios</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" onclick="document.location.href = '@Url.Content("~/Employee/Add")'" value="New" />
+    </div>
+</div>
+
+<h2>Employee</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Position</th>
+            </tr>
+            @foreach (var oElement in Model)
+            {
+                <tr>
+                    <td>@oElement.Id</td>
+                    <td>@oElement.Name</td>
+                    <td>@oElement.Email</td>
+                    <td>@oElement.Edad</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

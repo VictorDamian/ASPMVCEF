@@ -37,5 +37,16 @@
       <End Role="USTATE" EntitySet="USTATE" />
       <End Role="USERS" EntitySet="USERS" />
     </AssociationSet>
+    <EntitySet Name="EMPLOYEE" EntityType="PRACTICAMVCModel.EMPLOYEE" />
   </EntityContainer>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="IDEMP" />
+    </Key>
+    <Property Name="IDEMP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="AGE" Type="Int32" Nullable="false" />
+    <Property Name="MAIL" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="POSITION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

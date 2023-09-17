@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PRACTICAMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PRACTICAMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="IDEMP" />
+          </Key>
+          <Property Name="IDEMP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="AGE" Type="int" Nullable="false" />
+          <Property Name="MAIL" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="POSITION" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="USERS">
           <Key>
             <PropertyRef Name="IDUSER" />
@@ -34,6 +44,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PRACTICAMVCModelStoreContainer">
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USTATE" EntityType="Self.USTATE" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_IDSTATE" Association="Self.FK_IDSTATE">
@@ -41,8 +52,7 @@
             <End Role="USERS" EntitySet="USERS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PRACTICAMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -83,7 +93,18 @@
             <End Role="USTATE" EntitySet="USTATE" />
             <End Role="USERS" EntitySet="USERS" />
           </AssociationSet>
+          <EntitySet Name="EMPLOYEE" EntityType="PRACTICAMVCModel.EMPLOYEE" />
         </EntityContainer>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="IDEMP" />
+          </Key>
+          <Property Name="IDEMP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="AGE" Type="Int32" Nullable="false" />
+          <Property Name="MAIL" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="POSITION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -105,6 +126,17 @@
               <MappingFragment StoreEntitySet="USTATE">
                 <ScalarProperty Name="IDSTATE" ColumnName="IDSTATE" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEE">
+            <EntityTypeMapping TypeName="PRACTICAMVCModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

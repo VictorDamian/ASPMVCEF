@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="PRACTICAMVCModel.USERS" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PRACTICAMVCModel.USTATE" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="PRACTICAMVCModel.FK_IDSTATE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PRACTICAMVCModel.EMPLOYEE" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

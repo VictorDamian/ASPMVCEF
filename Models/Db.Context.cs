@@ -27,5 +27,6 @@ namespace AspMvcEF.Models
     
         public virtual DbSet<USERS> USERS { get; set; }
         public virtual DbSet<USTATE> USTATE { get; set; }
+        public virtual DbSet<EMPLOYEE> EMPLOYEE { get; set; }
     }
 }

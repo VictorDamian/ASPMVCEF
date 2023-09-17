@@ -12,7 +12,7 @@ namespace AspMvcEF
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            // como enrutar los controllers
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

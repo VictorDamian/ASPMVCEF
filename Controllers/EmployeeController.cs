@@ -56,5 +56,55 @@ namespace AspMvcEF.Controllers
             }
             return Redirect(Url.Content("~/Employee/"));
         }
+        // GET DATA
+        public ActionResult Update(int id)
+        {
+            UpdEmployeeViewModel model = new UpdEmployeeViewModel();
+            using (var db = new PRACTICAMVCEntities())
+            {
+                // para obtener el dato id
+                var oEmployee = db.EMPLOYEE.Find(id);
+                model.Id = oEmployee.IDEMP;
+                model.Name = oEmployee.NAME;
+                model.Age = oEmployee.AGE;
+                model.Position = oEmployee.POSITION;
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Update(UpdEmployeeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            using (var db = new PRACTICAMVCEntities())
+            {
+                //le asigna los datos a la entidad
+                var oEmployee = db.EMPLOYEE.Find(model.Id);
+                oEmployee.NAME = model.Name;
+                oEmployee.AGE = model.Age;
+                if(model.Email != null && model.Email.Trim() != "")
+                {
+                    oEmployee.MAIL = model.Email;
+                }
+                oEmployee.POSITION = model.Position;
+                db.Entry(oEmployee).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return Redirect(Url.Content("~/Employee/"));
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            using (var db = new PRACTICAMVCEntities())
+            {
+                var ob = db.EMPLOYEE.Find(id);
+                db.Entry(ob).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+            }
+            return Content("1");
+        }
     }
 }

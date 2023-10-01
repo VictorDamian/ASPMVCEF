@@ -1,0 +1,38 @@
+﻿﻿@model AspMvcEF.Models.ViewModel.EmployeeViewModel
+@{
+    ViewBag.Title = "Add Employee";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "Employee", FormMethod.Post, new { role = "#form", @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("Error", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Name)
+            @Html.TextBoxFor(d => d.Name, new { @class = "form-control" })
+            @Html.ValidationMessage("Name", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Age)
+            @Html.TextBoxFor(d => d.Age, new { @class = "form-control" })
+            @Html.ValidationMessage("Age", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Email)
+            @Html.TextBoxFor(d => d.Email, new { @class = "form-control" })
+            @Html.ValidationMessage("Email", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.ComfirmEmail)
+            @Html.TextBoxFor(d => d.ComfirmEmail, new { @class = "form-control" })
+            @Html.ValidationMessage("ConfirmEmail", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Position)
+            @Html.TextBoxFor(d => d.Position, new { @class = "form-control" })
+            @Html.ValidationMessage("Position", new { @class = "text-danger" })
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Save" />
+            </div>
+        }
+    </div>
+</div>

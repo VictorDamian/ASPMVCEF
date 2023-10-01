@@ -1,5 +1,5 @@
 ﻿<!--Esta vista recive un modelo-->
-@model List<AspMvcEF.Models.TableViewModel.EmployeeViewModel>
+@model List<AspMvcEF.Models.TableViewModel.EmployeeTableViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -28,8 +28,9 @@
                 <tr>
                     <td>@oElement.Id</td>
                     <td>@oElement.Name</td>
-                    <td>@oElement.Email</td>
                     <td>@oElement.Edad</td>
+                    <td>@oElement.Email</td>
+                    <td>@oElement.Pos</td>
                 </tr>
             }
         </table>
